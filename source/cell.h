@@ -18,7 +18,7 @@ private:
     int xCoord, yCoord;
     float gValue, fValue;
     Cell *parent;
-    std::vector<Cell> neighbours;
+    std::vector<Cell*> neighbours;
 
 
 };
