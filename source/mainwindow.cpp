@@ -19,11 +19,11 @@ void MainWindow::paintEvent(QPaintEvent *){
      painter.setPen(Qt::darkGreen);
 
 
-     for(int i = 0;i<30;i+=6){
-         for(int j = 0;j<30;j+=6){
-             painter.drawRect(i+1, j+1,20,20);
-         }
-     }
+//     for(int i = 0;i<30;i+=6){
+//         for(int j = 0;j<30;j+=6){
+//             painter.drawRect(i+1, j+1,20,20);
+//         }
+//     }
 
     //TODO Finish setting up painter
 
