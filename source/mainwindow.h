@@ -17,6 +17,7 @@ public:
     ~MainWindow();
 
     virtual void paintEvent(QPaintEvent *);
+    void setInitialGrid(int row, int col);
 
 private:
     Ui::MainWindow *ui;
