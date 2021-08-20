@@ -3,6 +3,7 @@
 #include <QGridLayout>
 #include <QTableWidget>
 #include <QHeaderView>
+#include <QVBoxLayout>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -31,18 +32,31 @@ void MainWindow::setInitialGrid(int row, int col){
 
     for(int i = 0;i<row;i++){
         for(int j = 0;j<col;j++){
-            gridTable->setItem(i,j, new QTableWidgetItem());
+            QTableWidgetItem *item = new QTableWidgetItem;
+            gridTable->setItem(i,j, item);
+
         }
     }
 
+    QString tableStyle(
+        "QTableWidget {"
+            "border: 1px solid black;"
+            "gridline-color: black "
+         "}"
+    );
+
     gridTable->horizontalHeader()->hide();
     gridTable->verticalHeader()->hide();
-    //gridTable->
+    gridTable->setStyleSheet(tableStyle);
+    //gridTable->resize()
+
 
     //TODO Need to adjust table size so it fits in the window
     //TODO also probably need modify styles of the table a bit as well, can use CSS
 
-    ui->gridLayout_2->addWidget(gridTable);
+    ui->verticalLayout->addWidget(gridTable);
+
+
 }
 
 
