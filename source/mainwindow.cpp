@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QGridLayout>
 #include <QTableWidget>
+#include <QHeaderView>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -9,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    this->setLayout(new QGridLayout);
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +18,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/**
+ * @brief MainWindow::setInitialGrid Creates the inital grid of the algorithm
+ * @param row number of rows
+ * @param col number of columns
+ */
 void MainWindow::setInitialGrid(int row, int col){
+
+    //this->grid = new QTableWidget(row, col);
 
     QTableWidget *gridTable = new QTableWidget(row,col);
 
@@ -27,7 +35,14 @@ void MainWindow::setInitialGrid(int row, int col){
         }
     }
 
-    this->ui->centralwidget->layout()->addWidget(gridTable);
+    gridTable->horizontalHeader()->hide();
+    gridTable->verticalHeader()->hide();
+    //gridTable->
+
+    //TODO Need to adjust table size so it fits in the window
+    //TODO also probably need modify styles of the table a bit as well, can use CSS
+
+    ui->gridLayout_2->addWidget(gridTable);
 }
 
 
