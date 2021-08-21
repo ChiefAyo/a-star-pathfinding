@@ -12,9 +12,10 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     //w.paintEvent();
-    w.setInitialGrid(10,10);
+    w.setInitialGrid(20,20);
     w.show();
 
+    //vector<vector<Cell>> cells =
 
 
 
@@ -28,7 +29,8 @@ int main(int argc, char *argv[])
  * @param startCell Initial cell where search begins
  * @param endCell Trarget Cell where Search will end
  */
-void aStarSearch(Cell startCell, Cell endCell){
+void aStarSearch(Cell startCell, Cell endCell, MainWindow *w){
+
 
 
 

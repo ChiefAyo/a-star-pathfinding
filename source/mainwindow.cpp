@@ -40,7 +40,6 @@ void MainWindow::setInitialGrid(int row, int col){
 
     QString tableStyle(
         "QTableWidget {"
-            "border: 1px solid black;"
             "gridline-color: black "
          "}"
     );
@@ -48,6 +47,11 @@ void MainWindow::setInitialGrid(int row, int col){
     gridTable->horizontalHeader()->hide();
     gridTable->verticalHeader()->hide();
     gridTable->setStyleSheet(tableStyle);
+    gridTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    gridTable->setSelectionMode(QTableWidget::NoSelection);
+    gridTable->verticalHeader()->setDefaultSectionSize(15);
+    gridTable->horizontalHeader()->setDefaultSectionSize(15);
+
     //gridTable->resize()
 
 
