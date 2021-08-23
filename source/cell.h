@@ -14,10 +14,19 @@ public:
 
     float getG();
     float getF();
+
+    void setX(int x);
+    void setY(int y);
+
+    int getX();
+    int getY();
+
+    std::vector<Cell*> getNeighbours();
+
 private:
     int xCoord, yCoord;
     float gValue, fValue;
-    Cell *parent;
+    Cell* parent;
     std::vector<Cell*> neighbours;
 
 
