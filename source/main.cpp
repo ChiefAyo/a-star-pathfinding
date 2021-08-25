@@ -26,9 +26,58 @@ int main(int argc, char *argv[])
             cells[i][j].setX(i);
             cells[i][j].setY(j);
 
-//            if(cells[i-1][j-1]){
+            // every node has 8 possible neighbours, starting from top left
+            // goes clockwise
 
-//            }
+            //topleft
+            if((i-1>=0)&&(j-1>=0)){
+                Cell* topLeft = &cells[i-1][j-1];
+                cells[i][j].getNeighbours().push_back(topLeft);
+            }
+
+            //top
+            if((i-1>=0)){
+                Cell* top = &cells[i-1][j];
+                cells[i][j].getNeighbours().push_back(top);
+            }
+
+            //topright
+            if((i-1>=0)&&(j+1>=0)){
+                Cell* topRight = &cells[i-1][j+1];
+                cells[i][j].getNeighbours().push_back(topRight);
+            }
+
+            //right
+            if(j+1<n){
+                Cell* right = &cells[i][j+1];
+                cells[i][j].getNeighbours().push_back(right);
+            }
+
+            //bottomright
+            if((i+1<n)&&(j+1<n)){
+                Cell* bottmRight = &cells[i+1][j+1];
+                cells[i][j].getNeighbours().push_back(bottmRight);
+            }
+
+            //bottom
+            if(i+1<n){
+                Cell* bottmRight = &cells[i+1][j];
+                cells[i][j].getNeighbours().push_back(bottmRight);
+            }
+
+            //bottomLeft
+            if((i+1<n)&&(j-1<n)){
+                Cell* bottmRight = &cells[i+1][j-1];
+                cells[i][j].getNeighbours().push_back(bottmRight);
+            }
+
+            //left
+            if((j-1>0)){
+                Cell* bottmRight = &cells[i][j-1];
+                cells[i][j].getNeighbours().push_back(bottmRight);
+            }
+
+
             //TODO Need way to check if corners are out of bounds
         }
     }
