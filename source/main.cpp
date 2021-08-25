@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
             }
 
             //topright
-            if((i-1>=0)&&(j+1>=0)){
+            if((i-1>=0)&&(j+1<n)){
                 Cell* topRight = &cells[i-1][j+1];
                 cells[i][j].getNeighbours().push_back(topRight);
             }
