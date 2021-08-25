@@ -55,26 +55,26 @@ int main(int argc, char *argv[])
 
             //bottomright
             if((i+1<n)&&(j+1<n)){
-                Cell* bottmRight = &cells[i+1][j+1];
-                cells[i][j].getNeighbours().push_back(bottmRight);
+                Cell* bottomRight = &cells[i+1][j+1];
+                cells[i][j].getNeighbours().push_back(bottomRight);
             }
 
             //bottom
             if(i+1<n){
-                Cell* bottmRight = &cells[i+1][j];
-                cells[i][j].getNeighbours().push_back(bottmRight);
+                Cell* bottom = &cells[i+1][j];
+                cells[i][j].getNeighbours().push_back(bottom);
             }
 
             //bottomLeft
-            if((i+1<n)&&(j-1<n)){
-                Cell* bottmRight = &cells[i+1][j-1];
-                cells[i][j].getNeighbours().push_back(bottmRight);
+            if((i+1<n)&&(j-1>=0)){
+                Cell* bottomLeft = &cells[i+1][j-1];
+                cells[i][j].getNeighbours().push_back(bottomLeft);
             }
 
             //left
-            if((j-1>0)){
-                Cell* bottmRight = &cells[i][j-1];
-                cells[i][j].getNeighbours().push_back(bottmRight);
+            if((j-1>=0)){
+                Cell* left = &cells[i][j-1];
+                cells[i][j].getNeighbours().push_back(left);
             }
 
 
