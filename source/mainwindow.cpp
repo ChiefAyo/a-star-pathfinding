@@ -1,9 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include <QGridLayout>
 #include <QTableWidget>
 #include <QHeaderView>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -30,10 +32,13 @@ void MainWindow::setInitialGrid(int row, int col){
 
     QTableWidget *gridTable = new QTableWidget(row,col);
 
+
     for(int i = 0;i<row;i++){
         for(int j = 0;j<col;j++){
             QTableWidgetItem *item = new QTableWidgetItem;
             gridTable->setItem(i,j, item);
+
+            //TODO Get some kind of on click event to change cell colour
 
         }
     }
@@ -44,6 +49,10 @@ void MainWindow::setInitialGrid(int row, int col){
          "}"
     );
 
+    //adds on click event
+    connect(gridTable, &QTableWidget::itemClicked,this, &MainWindow::onItemClicked);
+
+    //hides unecessary click event
     gridTable->horizontalHeader()->hide();
     gridTable->verticalHeader()->hide();
     gridTable->setStyleSheet(tableStyle);
@@ -51,6 +60,8 @@ void MainWindow::setInitialGrid(int row, int col){
     gridTable->setSelectionMode(QTableWidget::NoSelection);
     gridTable->verticalHeader()->setDefaultSectionSize(15);
     gridTable->horizontalHeader()->setDefaultSectionSize(15);
+
+
 
     //gridTable->resize()
 
@@ -60,10 +71,39 @@ void MainWindow::setInitialGrid(int row, int col){
 
     ui->verticalLayout->addWidget(gridTable);
 
+    auto startButton = new QPushButton("Start",this);
+    connect(startButton, &QPushButton::released, this, &MainWindow::handleStartButton);
+
+    auto resetButton = new QPushButton("Reset",this);
+    connect(resetButton, &QPushButton::released, this, &MainWindow::handleResetButton);
+
+
+    ui->verticalLayout->addWidget(startButton);
+    ui->verticalLayout->addWidget(resetButton);
 
 }
 
+//void MainWindow::setCellColour(QTableWidgetItem *cellItem, std::string colour){
+//    cellItem->setBackground(QBrush::colour)
+//}
 
+void MainWindow::onItemClicked(QTableWidgetItem *cell){
+    if(cell != NULL && !startCellSet){
+        cell->setBackground(Qt::darkGreen);
+        startCellSet = true;
+    }
+
+}
+
+//starts the search when start button is clicked
+void MainWindow::handleStartButton(){
+
+}
+
+//Resets the whole search
+void MainWindow::handleResetButton(){
+
+}
 
 void MainWindow::paintEvent(QPaintEvent *){
 

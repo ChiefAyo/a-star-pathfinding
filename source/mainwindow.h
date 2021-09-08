@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPainter>
+#include <QTableWidgetItem>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,9 +18,16 @@ public:
     ~MainWindow();
 
     virtual void paintEvent(QPaintEvent *);
+    //void setCellColour(QTableWidgetItem Cell, std::string colour);
     void setInitialGrid(int row, int col);
 
 private:
     Ui::MainWindow *ui;
+
+    bool startCellSet;
+    bool endCellSet;
+    void onItemClicked(QTableWidgetItem * cell);
+    void handleStartButton();
+    void handleResetButton();
 };
 #endif // MAINWINDOW_H

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    int n = 20;
+    int n = 15;
     //w.paintEvent();
     w.setInitialGrid(n,n);
     w.show();
