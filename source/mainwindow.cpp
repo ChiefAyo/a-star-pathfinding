@@ -43,14 +43,16 @@ void MainWindow::setInitialGrid(int row, int col){
         }
     }
 
+    // Sets styling for table
     QString tableStyle(
         "QTableWidget {"
             "gridline-color: black "
          "}"
     );
 
-    //adds on click event
+    //adds on click event to left click
     connect(gridTable, &QTableWidget::itemClicked,this, &MainWindow::onItemClicked);
+    connect(gridTable, &QTableWidget::itemDoubleClicked,this, &MainWindow::onItemDoubleClicked);
 
     //hides unecessary click event
     gridTable->horizontalHeader()->hide();
@@ -70,6 +72,7 @@ void MainWindow::setInitialGrid(int row, int col){
     //TODO also probably need modify styles of the table a bit as well, can use CSS
 
     ui->verticalLayout->addWidget(gridTable);
+    gridTable->viewport()->installEventFilter(this);
 
     auto startButton = new QPushButton("Start",this);
     connect(startButton, &QPushButton::released, this, &MainWindow::handleStartButton);
@@ -87,6 +90,8 @@ void MainWindow::setInitialGrid(int row, int col){
 //    cellItem->setBackground(QBrush::colour)
 //}
 
+
+
 void MainWindow::onItemClicked(QTableWidgetItem *cell){
     if(cell != NULL && !startCellSet){
         cell->setBackground(Qt::darkGreen);
@@ -95,9 +100,23 @@ void MainWindow::onItemClicked(QTableWidgetItem *cell){
 
 }
 
+void MainWindow::onItemDoubleClicked(QTableWidgetItem *cell){
+    if(cell != NULL && !endCellSet){
+        cell->setBackground(Qt::red);
+        endCellSet = true;
+    }
+
+}
+
+
+
 //starts the search when start button is clicked
 void MainWindow::handleStartButton(){
+    if((startCellSet && endCellSet)) {
+        //clear path and start again
 
+
+    }
 }
 
 //Resets the whole search

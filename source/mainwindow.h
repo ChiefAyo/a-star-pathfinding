@@ -26,8 +26,11 @@ private:
 
     bool startCellSet;
     bool endCellSet;
+    bool ended;
     void onItemClicked(QTableWidgetItem * cell);
+    void onItemDoubleClicked(QTableWidgetItem * cell);
     void handleStartButton();
     void handleResetButton();
+    // virtual bool eventFilter(QObject *watched, QEvent *event);
 };
 #endif // MAINWINDOW_H
