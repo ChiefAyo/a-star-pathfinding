@@ -95,6 +95,7 @@ void MainWindow::setInitialGrid(int row, int col){
 void MainWindow::onItemClicked(QTableWidgetItem *cell){
     if(cell != NULL && !startCellSet){
         cell->setBackground(Qt::darkGreen);
+
         startCellSet = true;
     }
 
@@ -111,7 +112,7 @@ void MainWindow::onItemDoubleClicked(QTableWidgetItem *cell){
 
 
 //starts the search when start button is clicked
-void MainWindow::handleStartButton(){
+void MainWindow::handleStartButton(QTableWidget *grid){
     if((startCellSet && endCellSet)) {
         //clear path and start again
 
@@ -120,22 +121,12 @@ void MainWindow::handleStartButton(){
 }
 
 //Resets the whole search
-void MainWindow::handleResetButton(){
+void MainWindow::handleResetButton(QTableWidget *grid){
 
 }
 
-void MainWindow::paintEvent(QPaintEvent *){
-
-     QPainter painter(this);
-     painter.setPen(Qt::darkGreen);
-
-
-//     for(int i = 0;i<30;i+=6){
-//         for(int j = 0;j<30;j+=6){
-//             painter.drawRect(i+1, j+1,20,20);
-//         }
-//     }
-
-    //TODO Finish setting up painter
-
+int getStartX(){
+    //return startX;
 }
+
+

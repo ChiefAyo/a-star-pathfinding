@@ -17,20 +17,24 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    virtual void paintEvent(QPaintEvent *);
+    //virtual void paintEvent(QPaintEvent *);
     //void setCellColour(QTableWidgetItem Cell, std::string colour);
     void setInitialGrid(int row, int col);
+    int getStartX();
+    int getStartY();
 
 private:
     Ui::MainWindow *ui;
 
+    int startX;
+    int startY;
     bool startCellSet;
     bool endCellSet;
     bool ended;
     void onItemClicked(QTableWidgetItem * cell);
     void onItemDoubleClicked(QTableWidgetItem * cell);
-    void handleStartButton();
-    void handleResetButton();
+    void handleStartButton(QTableWidget * grid);
+    void handleResetButton(QTableWidget * grid);
     // virtual bool eventFilter(QObject *watched, QEvent *event);
 };
 #endif // MAINWINDOW_H
